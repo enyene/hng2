@@ -28,6 +28,7 @@ def api(request):
 def calculate(request):
     headers = {
         "Access-Control-Allow-Origin": "*",
+        "content-type": "application/json"
 
     }
 

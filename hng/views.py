@@ -1,12 +1,12 @@
-from django.http import JsonResponse
+from rest_framework.decorators import api_view
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST
+from rest_framework.response import Response
 from .utils import operation
 import json
 
 
 @csrf_exempt
-@require_POST
+@api_view(['POST'])
 def calculate(request):
     headers = {
         "Access-Control-Allow-Origin": "*",
@@ -22,7 +22,7 @@ def calculate(request):
     result = operation(operation_type=operation_type, x=x, y=y)
     
     
-    return JsonResponse({
+    return Response({
         "slackname":'enyene',
         'result':result ,
         "operation_type": operation_type},

@@ -42,7 +42,7 @@ def calculate(request):
     
     
     return Response({
-        "slackname":'enyene',
+        "slackUsername":'enyene',
         'result':result ,
         "operation_type": operation_type},
         status=200,headers=headers)
